@@ -141,8 +141,8 @@ def register_user(request):
         form = MyRegistrationForm()
     args = {}
     args['form'] = form
-    print "args:"
-    print args
+    # print "args:"
+    # print args
     return render(request, 'login_reg/register.html', args)
 
 def  register_success(request):
