@@ -1,0 +1,16 @@
+{% extends "login_reg/base.html" %}
+{% block title %}User Registration{% endblock %}
+{% block head %}User Registration{% endblock %}
+{% block content %}
+    <form method="post" action="/accounts/register/">
+      {% csrf_token %}
+      {{ form.errors }}
+      {{ form.non_field_errors }}
+      
+        <table border="0">
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Register" />
+    </form>
+    <a href="/">Login</a>
+{% endblock %}

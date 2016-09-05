@@ -1,0 +1,27 @@
+{% extends "login_reg/articles_base.html" %}
+
+{% block sidebar %}
+<ul>
+  <li><a href="/articles/all">Articles</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+  <h1>{{ article.title }}</h1>
+  <p>{{ article.body }}</p>
+  <a class="btn btn-default" href="{% url 'add_comment_to_article' pk=article.pk %}">Add comment</a>
+  {% for comment in article.comments.all %}
+     {% if user.is_authenticated %}
+  <div class="comment">
+    <div class="date">{{ comment.created_date }}<div>
+    <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+    <strong>{{ comment.author }}</strong>
+    <p>{{ comment.text|linebreaks }}</p>
+  </div>
+  {% endif %}
+  {% empty %}
+    <p>No comments here yet :(</p>
+  {% endfor %}
+  <p>{{ article.likes }} peopel like this article</p>
+  <p><a href="/articles/like/{{article.id}}">Like</a></p>
+{% endblock %}

@@ -1,0 +1,14 @@
+<html>
+<body>
+  {% for pizza in pizzas %}
+    Pizza id: {{ pizza.id }}
+    <h2>Pizza name: {{ pizza.name }}</h2>
+      Toppings:
+      <ul>
+      {% for topping in pizza.toppings.all %}
+        <li>{{ topping.name}}</li>
+      {%  endfor %}
+    </ul>
+  {% endfor %}
+</body>
+</html>
