@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 admin.autodiscover()
 
 urlpatterns = [
+    url(r'^book_reviews/', include('apps.book_reviews.urls')),
     url(r'^articles/', include('apps.login_reg.urls')),
     url(r'^', include('apps.login_reg.urls')),
     url(r'^automobiles/', include('automobiles.urls')),

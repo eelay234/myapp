@@ -1,0 +1,12 @@
+<html>
+<body>
+  <form action="/book_reviews/login/" method="POST">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit"  name="login" value="log in">
+  </form>
+  <form action="/book_reviews/register/" method="POST">{% csrf_token %}
+    {{ form2.as_p }}
+    <input type="submit"  name="register" value="Register">
+  </form>
+</body>
+</html>

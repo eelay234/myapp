@@ -1,0 +1,13 @@
+<html>
+<head>
+</head>
+<body>
+  <form action="/book_reviews/register/" method="POST">
+    {% csrf_token %}
+    <table>
+    {{ regForm.as_table}}
+    </table>
+    <input type="submit" name="name" value="register">
+  </form>
+</body>
+</html>
